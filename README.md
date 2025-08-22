@@ -1,34 +1,30 @@
-# stringinject
-Inject an array, or an object of items in to a string replacing selected values.
+# stringinject-ts
 
-## Install ##
+A TypeScript version of [stringinject](https://github.com/tjcafferkey/stringinject) with support for **CommonJS**, **ES Modules**, and TypeScript typings.
 
-``` bash
-npm install stringinject
+## Install
+
+```bash
+npm install stringinject-ts
 ```
 
-## Usages ##
+## Usage
 
-### Arrays ###
+```ts
+import { stringInject } from "stringinject-ts";
 
-```javascript
-import stringInject from 'stringinject';
+console.log(stringInject("Hello {name}", { name: "World" }));
+// Output: "Hello World"
 ```
 
-If you pass stringInject a first parameter of a string which includes placeholder values in the format of {0}, {1}, {2} etc. A second parameter which is an Array of 3 string items. It will replace the placeholders, with the Array items in the order specified.
+Supports both array and object replacements:
 
-```javascript
-var string = stringInject("This is a {0} string for {1}", ["test", "stringInject"]);
-
-// This is a test string for stringInject
+```ts
+stringInject("Hi {0}, you have {1} messages", ["Alice", 5]);
 ```
 
-### Objects ###
+## Build
 
-You can also pass in an object with keys that exist as placeholders within the string. It will then find the placeholder based on your key and replace it with the value of that key from your object.
-
-```javascript
-var str = stringInject("My username is {username} on {platform}", { username: "tjcafferkey", platform: "GitHub" });
-
-// My username is tjcafferkey on Github
+```bash
+npm run build
 ```
