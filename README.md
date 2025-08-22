@@ -1,17 +1,17 @@
-# stringinject-ts
+# stringinject
 
 A TypeScript version of [stringinject](https://github.com/tjcafferkey/stringinject) with support for **CommonJS**, **ES Modules**, and TypeScript typings.
 
 ## Install
 
 ```bash
-npm install stringinject-ts
+npm install stringinject
 ```
 
 ## Usage
 
 ```ts
-import { stringInject } from "stringinject-ts";
+import stringInject from "stringinject";
 
 console.log(stringInject("Hello {name}", { name: "World" }));
 // Output: "Hello World"
@@ -27,4 +27,10 @@ stringInject("Hi {0}, you have {1} messages", ["Alice", 5]);
 
 ```bash
 npm run build
+```
+
+## Test
+
+```bash
+npm test
 ```

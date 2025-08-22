@@ -4,6 +4,13 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build:cjs && npm run build:esm",
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc --outDir dist/cjs --module commonjs --project tsconfig.app.json",
+    "build:esm": "tsc --outDir dist/esm --module ESNext --project tsconfig.app.json",
+    "test": "mocha"
+  },
   "exports": {
     ".": {
       "import": {
@@ -16,13 +23,11 @@
       }
     }
   },
-  "scripts": {
-    "prepare": "npm run build:cjs && npm run build:esm",
-    "build": "npm run build:cjs && npm run build:esm",
-    "build:cjs": "tsc --outDir dist/cjs --module commonjs",
-    "build:esm": "tsc --outDir dist/esm --module ESNext"
-  },
   "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "chai": "^4.3.0",
+    "mocha": "^10.0.0",
+    "ts-node": "^10.0.0",
     "typescript": "^5.0.0"
   }
 }
